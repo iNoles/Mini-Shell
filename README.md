@@ -1,15 +1,28 @@
 # Mini Shell
 
-A simple shell implementation in C that reads and executes commands from user input. This shell supports basic command execution, signal handling, and built-in commands like `cd` and `exit`.
+A small shell program written in C. It reads commands from the user, runs them, and handles basic shell behavior. This version includes support for simple pipes, built‑in commands, and safer handling of signals and input.
 
 ## Features
 
-- **Execute External Commands:** Run any system command (like `ls`, `pwd`, etc.).
+- **Execute External Commands:**
+Run any system command (like `ls`, `pwd`, etc.)
+
 - **Built-in Commands:** 
   - `cd` - Change the current directory.
   - `exit` - Exit the shell.
+  
+- **Pipe Support**:  
+Run one command and send its output into another using a single pipe, for example:
+`ls | grep c`
+
 - **Signal Handling:** 
   - Handle `Ctrl+C` gracefully without exiting the shell.
+
+- **Improved Input Handling**:  
+The shell recovers cleanly if input is interrupted.
+
+- **Memory Safety**:  
+All allocated memory is properly freed.
 
 ## Getting Started
 
@@ -45,9 +58,6 @@ This project showcases your understanding of:
 - System Programming: Managing low-level operations like input/output, memory allocation, and signal handling using C standard libraries.
 - Process Management: Creating and managing child processes using fork(), executing commands with execvp(), and synchronizing with waitpid().
 - Inter-process Communication: Handling signals, like SIGINT for Ctrl+C, to communicate between user and shell processes gracefully.
-
-## Memory Management
-This shell program dynamically allocates memory for user input and parsed arguments. All allocated memory is properly freed to prevent memory leaks.
 
 ## Contributions
 Contributions, issues, and feature requests are welcome! Feel free to check out the issues page if you have any questions or suggestions.
